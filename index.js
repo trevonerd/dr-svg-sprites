@@ -212,7 +212,7 @@ module.exports = function (config, callback) {
 			var spriteSelectors = [];
 			
 			sprite.elements.forEach(function (element) {
-				var className = makeClassName(element.className, sizeLabel);
+				var className = (config.sizeInClassName ? makeClassName(element.className, sizeLabel): '.' +element.className);
 				spriteSelectors.push(className);
 				svgSelectors.push(className);
 				css += substitute(cssElementRule, {
